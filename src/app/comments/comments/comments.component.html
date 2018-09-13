@@ -1,0 +1,20 @@
+<button style="margin:5px" class="btn btn-primary" (click)="showComments()">{{status?'Hide Comments':'Show Comments'}}</button>
+<br/>
+<div *ngIf="status">
+    <div  *ngFor="let comment of comments">
+          <label>Commented By: {{comment.uname}}</label>
+          <textarea id="description" class="form-control" name="description">{{comment.description}}</textarea> &nbsp;
+          <!-- <div>
+              <button type="button"  class="btn btn-primary" *ngIf="comment.isCmtdelete" (click)="deleteComment(comment._id)">Delete</button> 
+          </div><br/> -->
+    </div>
+    <br/>
+    <div>
+      <form #commentForm="ngForm">
+          <div class="form-group">
+              <textarea id="description" class="form-control" name="description" [(ngModel)]="comment.description"  placeholder="Write comment"  required #description="ngModel"></textarea>
+          </div> 
+          <button type="button"  [disabled]="!commentForm.form.valid" class="btn btn-primary" (click)="saveComment()">Add Comment</button> 
+      </form>
+    </div>
+</div>

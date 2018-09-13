@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row main">
+      <div class="panel-heading">
+               <div class="panel-title text-center">
+                   <h1 class="title">New Post</h1>
+                   <hr />
+                 </div>
+      </div> 
+      <div>
+        <form #newPostForm="ngForm">
+          <div class="form-group">
+              <label for="exampleInputEmail1">Title</label>
+              <input type="text" id="title" class="form-control" name="title" [(ngModel)]="newPost.title" placeholder="Title" required #title="ngModel">
+              <div *ngIf="title.errors && (title.dirty || title.touched)" class="alert alert-danger">
+                  <div [hidden]="!title.errors.required">
+                      Title is required.
+                  </div>
+                </div>
+          </div>
+          <div class="form-group">
+              <label for="exampleInputPassword1">Description</label>
+              <textarea id="description" class="form-control" name="description"  placeholder="Write something" [(ngModel)]="newPost.description" required #description="ngModel"></textarea>
+              <div *ngIf="description.errors && (description.dirty || description.touched)" class="alert alert-danger">
+                  <div [hidden]="!description.errors.required">
+                     Description is required.
+                  </div>
+              </div>
+          </div> 
+          <button type="button" [disabled]="!newPostForm.form.valid" class="btn btn-primary" (click)="savePost()">Post</button> 
+        </form>
+      </div>
+      
+  </div>
+  
