@@ -17,6 +17,6 @@ npm i @angular/cli
 # Running
 
 1. Go to the folder where you have cloned remote repository.
-2. Run mongod or mongo command 
-3. Run node server.js
-4. Run ng serve to start application.
+2. Run mongod or mongo command. 
+3. Run node server.js command to start server.
+4. Run ng serve command to start application.
